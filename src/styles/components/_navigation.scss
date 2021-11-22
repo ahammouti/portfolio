@@ -1,0 +1,138 @@
+.navigation {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 35px;
+  z-index: 5;
+  color: $color-1;
+
+  .nav-active {
+    color: #000;
+  }
+
+  .nav-portfolio {
+    cursor: pointer;
+    display: flex;
+    padding-right: 14rem;
+    transition: .5s;
+    color: $color-4;
+
+    &:hover .nav-projects,
+    .nav-projects:hover {
+
+      visibility: visible;
+      opacity: 1;
+      font-size: 1rem;
+
+      li {
+        color: $color-2;
+        transform: rotatey(0deg);
+
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+
+    .nav-projects {
+      position: absolute;
+      visibility: hidden;
+      left: 2rem;
+      top: 4.5rem;
+      opacity: 0;
+      padding: 0 40px;
+      width: 200px;
+      transform: translateX(70px);
+      transition: .3s;
+      perspective: 500px;
+
+      li {
+        transform: rotatey(30deg) scaleX(1.2);
+        transform-origin: center;
+        transition: .3s;
+      }
+    }
+  }
+
+  ul {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  a {
+    position: relative;
+    display: inline;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+      transform: scale(0);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  a:hover {
+    transition: 1.1s ease-out;
+    color: rgb(0, 0, 0);
+  }
+
+  a:hover::after {
+    transform: scale(1);
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background: $color-3;
+    top: -150px;
+    left: -100px;
+    z-index: -1;
+    animation: navAnim1 10s infinite alternate;
+
+    @keyframes navAnim1 {
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media screen and (max-width: 430px) {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: #d4d4;
+    top: 250px;
+    left: -180px;
+    z-index: -1;
+    animation: navAnim2 35s infinite alternate;
+
+    @keyframes navAnim2 {
+      50% {
+        transform: scale(2.5);
+      }
+
+      100% {
+        transform: scale(1.5);
+      }
+    }
+  }
+}

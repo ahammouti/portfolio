@@ -1,0 +1,61 @@
+.dynamic-text {
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    font-size: 52px;
+    position: absolute;
+    display: flex;
+    .simply {
+      color: rgb(56, 43, 110);
+    }
+  
+    #text-target {
+      display: flex;
+      width: 300px;
+      text-align: left;
+      animation: color 30s alternate infinite;
+      perspective: 200px;
+      transform: translateX(26px);
+    }
+    .word {
+      position: absolute;
+    }
+    @keyframes color {
+      0% {
+        color: rgb(255, 187, 0);
+      }
+
+      20%{
+          color: #dd4;
+      }
+
+      50% {
+        color: rgb(255, 64, 6);
+      }
+
+      60%{
+          color: rgb(0, 180, 15);
+      }
+
+      80%{
+          color: rgb(5, 59, 83);
+      }
+
+      100% {
+        color: rgb(255, 0, 0);
+      }
+    }
+    .letter {
+      transform: translateZ(200px);
+    }
+    @keyframes anim {
+      25% {
+        transform: translateZ(0px);
+        opacity: 1;
+      }
+      32% {
+        opacity: 0;
+        transform: translateZ(-280px) translateX(200px);
+      }
+    }
+  }
